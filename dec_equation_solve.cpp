@@ -6,8 +6,8 @@
 
 typedef struct {std::string path; std::string getPath() const {return path;}} FilePath;
 
-const FilePath input_file_path = {"..\\files\\input.txt"};
-const FilePath output_file_path = {"..\\files\\output.txt"};
+const FilePath INPUT_FILE_PATH = {"..\\files\\input.txt"};
+const FilePath OUTPUT_FILE_PATH = {"..\\files\\output.txt"};
 
 std::array<float, 3> readInputEquation(const FilePath& input_path){
     std::ifstream file_read(input_path.getPath());
@@ -42,5 +42,5 @@ std::vector<float> SolveEquation(std::array<float, 3> coefficients){
 }
 
 int main() {
-    printRoots(SolveEquation(readInputEquation(input_file_path)), output_file_path);
+    printRoots(SolveEquation(readInputEquation(INPUT_FILE_PATH)), OUTPUT_FILE_PATH);
 }
