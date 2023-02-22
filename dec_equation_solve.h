@@ -1,0 +1,8 @@
+#ifndef DEC_EQUATION_SOLVE_DEC_EQUATION_SOLVE_H
+#define DEC_EQUATION_SOLVE_DEC_EQUATION_SOLVE_H
+
+#include <string>
+
+typedef std::string FilePath;
+
+#endif //DEC_EQUATION_SOLVE_DEC_EQUATION_SOLVE_H

@@ -3,4 +3,4 @@ project(dec_equation_solve)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(dec_equation_solve dec_equation_solve.cpp)
+add_executable(dec_equation_solve dec_equation_solve.cpp dec_equation_solve.h)

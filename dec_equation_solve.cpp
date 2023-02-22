@@ -3,14 +3,13 @@
 #include <fstream>
 #include <vector>
 #include <cmath>
+#include "dec_equation_solve.h"
 
-typedef struct {std::string path; std::string getPath() const {return path;}} FilePath;
-
-const FilePath INPUT_FILE_PATH = {"..\\files\\input.txt"};
-const FilePath OUTPUT_FILE_PATH = {"..\\files\\output.txt"};
+const FilePath INPUT_FILE_PATH = "..\\files\\input.txt";
+const FilePath OUTPUT_FILE_PATH = "..\\files\\output.txt";
 
 std::array<float, 3> readInputEquation(const FilePath& input_path){
-    std::ifstream file_read(input_path.getPath());
+    std::ifstream file_read(input_path);
 
     std::array<float, 3> equation_coefficients{};
     for(auto &coefficient : equation_coefficients)
@@ -21,7 +20,7 @@ std::array<float, 3> readInputEquation(const FilePath& input_path){
 }
 
 void printRoots(const std::vector<float>& roots, const FilePath& output_path){
-    std:: ofstream file_write(output_path.getPath());
+    std:: ofstream file_write(output_path);
 
     for(auto root : roots)
         file_write << root << " ";
