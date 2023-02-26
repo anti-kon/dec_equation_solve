@@ -8,10 +8,10 @@
 const FilePath INPUT_FILE_PATH = "..\\files\\input.txt";
 const FilePath OUTPUT_FILE_PATH = "..\\files\\output.txt";
 
-std::array<float, 3> readInputEquation(const FilePath& input_path){
+Equation readInputEquation(const FilePath& input_path){
     std::ifstream file_read(input_path);
 
-    std::array<float, 3> equation_coefficients{};
+    Equation equation_coefficients{};
     for(auto &coefficient : equation_coefficients)
         file_read >> coefficient;
 
@@ -19,7 +19,7 @@ std::array<float, 3> readInputEquation(const FilePath& input_path){
     return equation_coefficients;
 }
 
-void printRoots(const std::vector<float>& roots, const FilePath& output_path){
+void printRoots(const std::vector<Root>& roots, const FilePath& output_path){
     std:: ofstream file_write(output_path);
 
     for(auto root : roots)
@@ -28,10 +28,10 @@ void printRoots(const std::vector<float>& roots, const FilePath& output_path){
     file_write.close();
 }
 
-std::vector<float> SolveEquation(std::array<float, 3> coefficients){
-    float discriminant = std::pow(coefficients[1], 2.0f) - 4 * coefficients[0] * coefficients[2];
+std::vector<Root> SolveEquation(Equation coefficients){
+    Root discriminant = std::pow(coefficients[1], 2.0f) - 4 * coefficients[0] * coefficients[2];
 
-    std::vector<float> roots;
+    std::vector<Root> roots;
     if(discriminant >= 0)
         roots.push_back((-coefficients[1] - std::sqrt(discriminant)) / (2 * coefficients[0]));
     if(discriminant > 0)
